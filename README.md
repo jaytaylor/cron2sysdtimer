@@ -79,6 +79,19 @@ $ ct2stimer -f sample.crom --after docker.service
 
 ## Development
 
+### Get project build dependencies
+
+```bash
+go get -u github.com/jteeuwen/go-bindata/...
+```
+
+### Generate static assets
+
+```bash
+cd $GOPATH/src/github.com/dtan4/ct2stimer
+go generate ./...
+```
+
 Building and executing on Ubuntu 16.04 VM is easy so that macOS does not have systemd.
 
 ```bash

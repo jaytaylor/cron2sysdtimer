@@ -30,13 +30,13 @@ func TestParse(t *testing.T) {
 		},
 	}
 
-	got, err := Parse(string(body))
+	actual, err := Parse(string(body))
 	if err != nil {
-		t.Errorf("Error should not be raised. error: %s", err)
+		t.Fatalf("Unexpected error parsing body string %q: %s", body, err)
 	}
 
-	if !reflect.DeepEqual(got, expected) {
-		t.Errorf("Schedules do not match.\n  expected: %q\n  got:      %q", expected, got)
+	if !reflect.DeepEqual(actual, expected) {
+		t.Errorf("Schedules do not match expected values.\n  expected: %+v\n  actual:      %+v", expected, actual)
 	}
 }
 
@@ -104,13 +104,13 @@ func TestConvertToSystemdCalendar(t *testing.T) {
 	}
 
 	for _, tc := range testcases {
-		got, err := tc.schedule.ConvertToSystemdCalendar()
+		actual, err := tc.schedule.ConvertToSystemdCalendar()
 		if err != nil {
 			t.Errorf("Error should not be raised. error: %s", err)
 		}
 
-		if got != tc.expected {
-			t.Errorf("Calendar does not match. expected: %q, actual: %q", tc.expected, got)
+		if actual != tc.expected {
+			t.Errorf("Calendar does not match. expected: %q, actual: %q", tc.expected, actual)
 		}
 	}
 }
@@ -172,8 +172,8 @@ func TestNameByRegexp(t *testing.T) {
 	}
 
 	for _, tc := range testcases {
-		if got := tc.schedule.NameByRegexp(tc.nameRegexp); got != tc.expected {
-			t.Errorf("Name does not match. expected: %q, got: %q", tc.expected, got)
+		if actual := tc.schedule.NameByRegexp(tc.nameRegexp); actual != tc.expected {
+			t.Errorf("Name does not match. expected: %q, actual: %q", tc.expected, actual)
 		}
 	}
 }
@@ -185,7 +185,7 @@ func TestSHA256Sum(t *testing.T) {
 	}
 	expected := "4ab7fd35a3996a8b58483a640a52976d5c974372c12e5f7a973be86d96a0096e"
 
-	if got := schedule.SHA256Sum(); got != expected {
-		t.Errorf("Checksum does not match. expected: %q, got: %q", expected, got)
+	if actual := schedule.SHA256Sum(); actual != expected {
+		t.Errorf("Checksum does not match. expected: %q, actual: %q", expected, actual)
 	}
 }
