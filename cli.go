@@ -7,10 +7,11 @@ import (
 	"path/filepath"
 	"regexp"
 
-	"github.com/dtan4/ct2stimer/crontab"
-	"github.com/dtan4/ct2stimer/systemd"
 	"github.com/pkg/errors"
 	flag "github.com/spf13/pflag"
+
+	"jaytaylor.com/cron2sysdtimer/crontab"
+	"jaytaylor.com/cron2sysdtimer/systemd"
 )
 
 const (

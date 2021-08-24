@@ -1,4 +1,4 @@
-module github.com/dtan4/ct2stimer
+module jaytaylor.com/cron2sysdtimer
 
 go 1.17
 

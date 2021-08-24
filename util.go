@@ -7,9 +7,10 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/dtan4/ct2stimer/crontab"
-	"github.com/dtan4/ct2stimer/systemd"
 	"github.com/pkg/errors"
+
+	"jaytaylor.com/cron2sysdtimer/crontab"
+	"jaytaylor.com/cron2sysdtimer/systemd"
 )
 
 const (
